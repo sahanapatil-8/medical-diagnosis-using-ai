@@ -5,7 +5,7 @@ import numpy as np
 
 st.title("Medical Diagnosis AI 🩺")
 
-model = tf.keras.models.load_model("xray_model.h5")
+model = tf.keras.models.load_model("xray_model_small.h5")
 
 uploaded_file = st.file_uploader("Upload X-ray Image", type=["jpg", "jpeg", "png"])
 

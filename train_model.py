@@ -30,9 +30,9 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.MaxPooling2D(2,2),
     tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
     tf.keras.layers.MaxPooling2D(2,2),
-    tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(128, activation='relu'),
-    tf.keras.layers.Dense(1, activation='sigmoid')
+    tf.keras.layers.GlobalAveragePooling2D(),
+tf.keras.layers.Dense(64, activation='relu'),
+tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
@@ -42,5 +42,5 @@ print("Training started...")
 model.fit(train_data, epochs=3, validation_data=test_data)
 
 print("Saving model...")
-model.save("xray_model.h5")
+model.save("xray_model_small.h5")
 print("Done ✅")
